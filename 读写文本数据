@@ -1,0 +1,25 @@
+使用rt模式的open():
+with open('a.txt','rt') as f:
+	data = f.read()
+#Interate over the line of the file
+with open('a.txt','rt') as f:
+	for line in f:
+		.....#process line
+本文中需要提到的是写文件，与C类似，python中也可以redirected print statement.注意使用写模式，如果之前文件存在内容会被清除覆盖掉。
+with open('a.txt','wt') as f:
+	 print(line1. file=f)
+	 print(line2, file=f)
+	 ...
+open函数还有一些常用参数，譬如encoding 和 errors，分别用来指示编码模式和如何处理编码错误。
+那如果文件已存在如何写入文件？
+常规做法：
+import os
+if ont os.path.exists('a'):
+	with open('a','wt') as f:
+		f.write('Hello world!')
+else:
+	print('File already exists!')
+升级做法：#用xt模式代替wt模式
+with open('a','xt') as f:
+	 f.write('Hello world!')
+使用with 读写文件，省去最后的f.close()
